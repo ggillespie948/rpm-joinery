@@ -16,7 +16,7 @@ namespace RPMJoinery
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/vendor/bootstrap/css/bootstrap.css",
-                      "~/css/site.css"));
+                      "~/css/Site.css"));
         }
     }
 }
