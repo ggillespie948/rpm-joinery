@@ -7,6 +7,7 @@
     <meta name="author" content="">
     <title>RPM Joinery & Maintainance Dundee</title>
     <!-- <title>@ViewBag.Title - My ASP.NET Application</title> -->
+    @Scripts.Render("~/bundles/bootstrap")
     @Styles.Render("~/Content/css")
 
 </head>
@@ -59,7 +60,7 @@
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>
