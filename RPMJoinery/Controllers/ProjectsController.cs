@@ -54,6 +54,15 @@ namespace RPMJoinery.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            try
+            {
+                var usedID = GetCurrentUserID();
+                ViewBag.UserID = usedID;
+            }
+            catch (SystemException ex)
+            {
+
+            }
             return View();
         }
 
