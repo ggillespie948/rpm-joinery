@@ -23,16 +23,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="@Url.Action("Index","Home")">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.cshtml">About</a>
+                        <a class="nav-link" href="@Url.Action("About","Home")">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
+                        <a class="nav-link" href="@Url.Action("Services","Home")">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="@Url.Action("Contact","Home")">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,12 +55,18 @@
 
     @RenderBody()
     <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; RPM Joinery & Maintainance 2018</p>
+            <p class="m-0 text-center text-white">Website Created by Gary Gillespie</p>
+        </div>
+        <!-- /.container -->
+    </footer>
 </html>

@@ -26,5 +26,12 @@ namespace RPMJoinery.Controllers
 
             return View();
         }
+
+        public ActionResult Services()
+        {
+            ViewBag.Message = "Your Services page";
+
+            return View();
+        }
     }
 }

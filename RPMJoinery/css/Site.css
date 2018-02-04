@@ -25,3 +25,9 @@
 .bg-dark {
     color: #000000 !important;
 }
+
+.py-5 bg-dark {
+    bottom: 0 !important;
+    width: 100% !important;
+    
+}
