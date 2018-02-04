@@ -1,58 +1,77 @@
 ﻿@model RPMJoinery.Models.Project
 
-@{
-    ViewBag.Title = "Details";
-}
+<br />
+<br />
+<br />
 
-<h2>Details</h2>
 
-<div>
-    <h4>Project</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UserID)
-        </dt>
+<!-- Page Content -->
+<div class="container">
 
-        <dd>
-            @Html.DisplayFor(model => model.UserID)
-        </dd>
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+        @Html.DisplayFor(modelItem => modelItem.Title)
+        <small>@Html.DisplayFor(modelItem => modelItem.Type)</small>
+    </h1>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="index.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Portfolio Item</li>
+    </ol>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+    <!-- Portfolio Item Row -->
+    <div class="row">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+        <div class="col-md-8">
+            <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+        <div class="col-md-4">
+            <h3 class="my-3">Project Description</h3>
+            <p>@Html.DisplayFor(modelItem => modelItem.Description)</p>
+            <h3 class="my-3">Project Details</h3>
+            <p>@Html.DisplayFor(modelItem => modelItem.Details)</p>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
+    </div>
+    <!-- /.row -->
+    <!-- Related Projects Row -->
+    <h3 class="my-4">Related Projects</h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
+    <div class="row">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Details)
-        </dt>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Details)
-        </dd>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
 
-    </dl>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+    </div>
+    <!-- /.row -->
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<!-- /.container -->
