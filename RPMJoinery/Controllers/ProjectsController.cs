@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using RPMJoinery.Models;
 using Microsoft.AspNet.Identity;
+using System.IO;
 
 namespace RPMJoinery.Controllers
 {
@@ -71,12 +72,29 @@ namespace RPMJoinery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserID,Title,Description,Type,Details")] Project project)
+        public ActionResult Create([Bind(Include = "Id,UserID,Title,Description,Type,Details")] Project project, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+
+                if(image != null)
+                {
+
+                    //Save image to file
+                    var filename = image.FileName;
+                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
+                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    string savedFileName = Path.Combine(filePath, filename);
+
+                    //attach the uploaded image filepath to the object before saving to the database
+                    project.ImgFilePath = "/img/" + project.Id + "/" + image.FileName;
+                    image.SaveAs(savedFileName);
+
+                }
+
                 db.Projects.Add(project);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

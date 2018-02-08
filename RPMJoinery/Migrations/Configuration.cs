@@ -11,6 +11,7 @@ namespace RPMJoinery.Migrations
         {
             AutomaticMigrationsEnabled = true;
             ContextKey = "RPMJoinery.Models.ProjectsWebContext";
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(RPMJoinery.Models.ProjectsWebContext context)

@@ -17,6 +17,13 @@ namespace RPMJoinery.Models
     
         public ProjectsWebContext() : base("name=ProjectsWebContext")
         {
+
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<ProjectsWebContext>(null);
+            base.OnModelCreating(modelBuilder);
         }
 
         public System.Data.Entity.DbSet<RPMJoinery.Models.Project> Projects { get; set; }
