@@ -11,12 +11,18 @@ namespace RPMJoinery
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/vendor/jquery/jquery.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/imageModal").Include(
+            "~/js/ImageModal.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/vendor/bootstrap/js/bootstrap.bundle.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/vendor/bootstrap/css/bootstrap.css",
+                      "~/css/ImageModal.css",
                       "~/css/Site.css"));
+
+
         }
     }
 }

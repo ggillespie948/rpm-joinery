@@ -48,34 +48,47 @@
 
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="#">
-                <img class="card-img-top" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath2)" alt="">
+                <img class="card-img-top myImg" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath2)" alt="Image 1">
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4 myImg">
+            <a href="#">
+                <img class="card-img-top myImg" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath3)" alt="Image 2">
             </a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="#">
-                <img class="card-img-top" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath3)" alt="">
+                <img class="card-img-top myImg" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath4)" alt="Image 3">
             </a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="#">
-                <img class="card-img-top" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath4)" alt="">
-            </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="card-img-top" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath5)" alt="">
+                <img class="card-img-top myImg" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath5)" alt="Image 4">
             </a>
         </div>
 
     </div>
     <!-- /.row -->
     <p>
-        
         @Html.ActionLink("Back to List", "Index")
     </p>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
 
 </div>
 <!-- /.container -->

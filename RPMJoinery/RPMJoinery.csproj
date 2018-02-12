@@ -210,6 +210,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\ImageModal.css" />
     <Content Include="css\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -231,6 +232,7 @@
     <Content Include="img\toolkit2.jpg" />
     <Content Include="img\toolkit3.jpg" />
     <Content Include="js\contact_me.js" />
+    <Content Include="js\ImageModal.js" />
     <Content Include="js\jqBootstrapValidation.js" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
