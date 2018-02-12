@@ -88,14 +88,13 @@ namespace RPMJoinery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserID,Title,Description,Type,Details")] Project project, HttpPostedFileBase image, IEnumerable<HttpPostedFileBase> otherImages)
+        public ActionResult Create([Bind(Include = "Id,UserID,Title,Description,Type,Details")] Project project, HttpPostedFileBase image, HttpPostedFileBase image2, HttpPostedFileBase image3, HttpPostedFileBase image4, HttpPostedFileBase image5)
         {
             if (ModelState.IsValid)
             {
 
                 if(image != null)
                 {
-
                     //Save image to file
                     var filename = image.FileName;
                     Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
@@ -105,29 +104,60 @@ namespace RPMJoinery.Controllers
                     //attach the uploaded image filepath to the object before saving to the database
                     project.ImgFilePath = "/img/" + project.Id + "/" + image.FileName;
                     image.SaveAs(savedFileName);
-
                 }
 
-                if(otherImages != null)
+                if (image2 != null)
                 {
-                    project.OtherImgsFilePaths = new List<string>();
-                    foreach (var img in otherImages)
-                    {
-                        if (img != null && img.ContentLength > 0)
-                        {
-                            //Save image to file
-                            var filename = image.FileName;
-                            Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id + "/otherImg"));
-                            var filePath = Server.MapPath("~/img/" + project.Id + "/otherImg/");
-                            string savedFileName = Path.Combine(filePath, filename);
+                    //Save image to file
+                    var filename = image2.FileName;
+                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
+                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    string savedFileName = Path.Combine(filePath, filename);
 
-                            //attach the uploaded image filepath to the object before saving to the database
-                            project.OtherImgsFilePaths.Add("/img/" + project.Id + "/" + img.FileName);
-                            image.SaveAs(savedFileName);
-
-                        }
-                    }
+                    //attach the uploaded image filepath to the object before saving to the database
+                    project.ImgFilePath2 = "/img/" + project.Id + "/" + image2.FileName;
+                    image2.SaveAs(savedFileName);
                 }
+
+                if (image3 != null)
+                {
+                    //Save image to file
+                    var filename = image3.FileName;
+                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
+                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    string savedFileName = Path.Combine(filePath, filename);
+
+                    //attach the uploaded image filepath to the object before saving to the database
+                    project.ImgFilePath3 = "/img/" + project.Id + "/" + image3.FileName;
+                    image3.SaveAs(savedFileName);
+                }
+
+                if (image4 != null)
+                {
+                    //Save image to file
+                    var filename = image4.FileName;
+                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
+                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    string savedFileName = Path.Combine(filePath, filename);
+
+                    //attach the uploaded image filepath to the object before saving to the database
+                    project.ImgFilePath4 = "/img/" + project.Id + "/" + image4.FileName;
+                    image4.SaveAs(savedFileName);
+                }
+
+                if (image5 != null)
+                {
+                    //Save image to file
+                    var filename = image5.FileName;
+                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
+                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    string savedFileName = Path.Combine(filePath, filename);
+
+                    //attach the uploaded image filepath to the object before saving to the database
+                    project.ImgFilePath5 = "/img/" + project.Id + "/" + image5.FileName;
+                    image5.SaveAs(savedFileName);
+                }
+
 
                 db.Projects.Add(project);
                 db.SaveChanges();

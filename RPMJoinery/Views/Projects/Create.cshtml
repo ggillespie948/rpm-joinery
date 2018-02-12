@@ -55,19 +55,33 @@
 
             <div class="form-group">
                 Upload Cover Image (Single image displayed in search results)
+                <hr>
                 <div class="col-md-10">
                     <input name="Image" type="file" />
                     @Html.ValidationMessageFor(model => model.ImgFilePath)
                 </div>
             </div>
+            <br />
+
 
             <div class="form-group">
-                Upload Other Images (Multiple images displayed in project page)
+                Upload Other Images.. (Optional - Up to 4 extra images, displayed on project details page)
                 <div class="col-md-10">
-                    <input name="OtherImages" type="file"  multiple />
+                    <input name="Image2" type="file"  multiple />
+                    @Html.ValidationMessageFor(model => model.ImgFilePath)
+
+                    <input name="Image3" type="file" multiple />
+                    @Html.ValidationMessageFor(model => model.ImgFilePath)
+
+                    <input name="Image4" type="file" multiple />
+                    @Html.ValidationMessageFor(model => model.ImgFilePath)
+
+                    <input name="Image5" type="file" multiple />
                     @Html.ValidationMessageFor(model => model.ImgFilePath)
                 </div>
             </div>
+
+            <br />
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
