@@ -24,11 +24,8 @@
         <div class="col-md-7">
             <div class="card h-100">
                 <a href="@Url.Action("Details", "Projects", new { id = item.Id })"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImgFilePath)" alt=""></a>
-                </div>
-                <!--<a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="" alt="">
-                </a> -->
             </div>
+        </div>
         <div class="col-md-5">
             <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
             <p>@Html.DisplayFor(modelItem => item.Description)</p>
