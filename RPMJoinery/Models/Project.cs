@@ -15,8 +15,9 @@ namespace RPMJoinery.Models
         public string Type { get; set; }
         public string Details { get; set; }
         public string ImgFilePath { get; set; }
+        public List<string> OtherImgsFilePaths { get; set; }
 
-        
+
 
 
     }

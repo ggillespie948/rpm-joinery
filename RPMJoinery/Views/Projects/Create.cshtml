@@ -54,9 +54,17 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ImgFilePath, new { @class = "control-label col-md-2" })
+                Upload Cover Image (Single image displayed in search results)
                 <div class="col-md-10">
                     <input name="Image" type="file" />
+                    @Html.ValidationMessageFor(model => model.ImgFilePath)
+                </div>
+            </div>
+
+            <div class="form-group">
+                Upload Other Images (Multiple images displayed in project page)
+                <div class="col-md-10">
+                    <input name="OtherImages" type="file"  multiple />
                     @Html.ValidationMessageFor(model => model.ImgFilePath)
                 </div>
             </div>
