@@ -30,6 +30,14 @@ namespace RPMJoinery.Controllers
 
             }
 
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.IsAuthenticated = true;
+            } else
+            {
+                ViewBag.IsAuthenticated = false;
+            }
+
             //get TYPE 
             // return View(db.Projects.Where(x => x.UserId == userID).ToList());
 
@@ -47,6 +55,14 @@ namespace RPMJoinery.Controllers
             if (project == null)
             {
                 return HttpNotFound();
+            }
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.IsAuthenticated = true;
+            }
+            else
+            {
+                ViewBag.IsAuthenticated = false;
             }
             return View(project);
         }

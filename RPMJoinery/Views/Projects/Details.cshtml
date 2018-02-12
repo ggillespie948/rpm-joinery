@@ -16,12 +16,17 @@
 
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="index.html">Home</a>
+            <a href="@Url.Action("Index", "Projects")">Projects</a>
         </li>
-        <li class="breadcrumb-item active">Portfolio Item</li>
+        <li class="breadcrumb-item active">Project @Html.DisplayFor(modelItem => modelItem.Id)</li>
     </ol>
 
     <!-- Portfolio Item Row -->
+    @if (ViewBag.IsAuthenticated)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    }
+
     <div class="row">
 
         <div class="col-md-8">
@@ -69,7 +74,7 @@
     </div>
     <!-- /.row -->
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        
         @Html.ActionLink("Back to List", "Index")
     </p>
 

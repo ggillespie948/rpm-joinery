@@ -7,15 +7,15 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-        Portfolio 1
-        <small>Subheading</small>
+        Projects
+        <small>All</small>
     </h1>
 
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="index.html">Home</a>
+            <a href="@Url.Action("Index", "Home")">Home</a>
         </li>
-        <li class="breadcrumb-item active">Portfolio 1</li>
+        <li class="breadcrumb-item active">Projects</li>
     </ol>
 
     <!-- Project One -->
@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-7">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImgFilePath)" alt=""></a>
+                <a href="@Url.Action("Details", "Projects", new { id = item.Id })"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImgFilePath)" alt=""></a>
                 </div>
                 <!--<a href="#">
                     <img class="img-fluid rounded mb-3 mb-md-0" src="" alt="">
@@ -33,9 +33,14 @@
         <div class="col-md-5">
             <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
             <p>@Html.DisplayFor(modelItem => item.Description)</p>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
+
+            @if(ViewBag.IsAuthenticated)
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            }
+            
         </div>
     </div>
     <!-- /.row -->
