@@ -97,12 +97,11 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     var filename = image.FileName;
-                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
-                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    var filePath = Server.MapPath("~/img/");
                     string savedFileName = Path.Combine(filePath, filename);
 
                     //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath = "/img/" + project.Id + "/" + image.FileName;
+                    project.ImgFilePath = "/img/"+ image.FileName;
                     image.SaveAs(savedFileName);
                 }
 
@@ -110,12 +109,11 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     var filename = image2.FileName;
-                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
-                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    var filePath = Server.MapPath("~/img/");
                     string savedFileName = Path.Combine(filePath, filename);
 
                     //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath2 = "/img/" + project.Id + "/" + image2.FileName;
+                    project.ImgFilePath2 = "/img/" + image2.FileName;
                     image2.SaveAs(savedFileName);
                 }
 
@@ -123,12 +121,10 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     var filename = image3.FileName;
-                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
-                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    var filePath = Server.MapPath("~/img/");
                     string savedFileName = Path.Combine(filePath, filename);
-
                     //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath3 = "/img/" + project.Id + "/" + image3.FileName;
+                    project.ImgFilePath3 = "/img/" + image3.FileName;
                     image3.SaveAs(savedFileName);
                 }
 
@@ -136,12 +132,11 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     var filename = image4.FileName;
-                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
-                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    var filePath = Server.MapPath("~/img/");
                     string savedFileName = Path.Combine(filePath, filename);
 
                     //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath4 = "/img/" + project.Id + "/" + image4.FileName;
+                    project.ImgFilePath4 = "/img/" + image4.FileName;
                     image4.SaveAs(savedFileName);
                 }
 
@@ -149,12 +144,11 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     var filename = image5.FileName;
-                    Directory.CreateDirectory(Server.MapPath("~/img/" + project.Id));
-                    var filePath = Server.MapPath("~/img/" + project.Id + "/");
+                    var filePath = Server.MapPath("~/img/");
                     string savedFileName = Path.Combine(filePath, filename);
 
                     //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath5 = "/img/" + project.Id + "/" + image5.FileName;
+                    project.ImgFilePath5 = "/img/" + image5.FileName;
                     image5.SaveAs(savedFileName);
                 }
 
