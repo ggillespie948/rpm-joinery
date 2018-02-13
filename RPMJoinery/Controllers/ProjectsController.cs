@@ -64,6 +64,8 @@ namespace RPMJoinery.Controllers
             {
                 ViewBag.IsAuthenticated = false;
             }
+
+
             return View(project);
         }
 
