@@ -1,5 +1,5 @@
 ﻿
-
+@model IEnumerable<RPMJoinery.Models.Project>
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -70,41 +70,22 @@
     <!-- /.row -->
     <!-- Portfolio Section -->
     <h2>Portfolio: Recent Projects</h2>
-
     <div class="row">
+    @foreach (var item in Model)
+    {
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/project1.jpg" alt=""></a>
+                <a href="#"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImgFilePath)" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">West End Flat Renovation</a>
+                        <a href="@Url.Action("Details", "Projects", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Title)</a>
                     </h4>
-                    <p class="card-text">Another West End flat renovation for a client in Dundee. Turning a one bedroom flat into a spacious and modern open plan two bedroom flat.</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/project2.jpg" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Fitted Bathroom</a>
-                    </h4>
-                    <p class="card-text">Another bathroom that we completed this week.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/project3.jpg" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Fitted Laminate Flooring</a>
-                    </h4>
-                    <p class="card-text">Black slate laminate flooring fitted in the kitchen and bathroom of a property for a letting agent.</p>
-                </div>
-            </div>
-        </div>
+    }
+        
         <div class="col-md-12 text-center">
             <a href="#" class="btn btn-primary btn-lg">View Full Portfolio</a>
             <br>

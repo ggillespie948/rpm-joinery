@@ -88,7 +88,7 @@ namespace RPMJoinery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserID,Title,Description,Type,Details")] Project project, HttpPostedFileBase image, HttpPostedFileBase image2, HttpPostedFileBase image3, HttpPostedFileBase image4, HttpPostedFileBase image5)
+        public ActionResult Create([Bind(Include = "Id,UserID,Title,Description,Type,Details")] Project project, string[] type, HttpPostedFileBase image, HttpPostedFileBase image2, HttpPostedFileBase image3, HttpPostedFileBase image4, HttpPostedFileBase image5)
         {
             if (ModelState.IsValid)
             {
@@ -152,6 +152,12 @@ namespace RPMJoinery.Controllers
                     image5.SaveAs(savedFileName);
                 }
 
+                string tagString = "";
+                foreach(string tag in type)
+                {
+                    tagString += " " + tag;
+                }
+                project.Type = tagString;
 
                 db.Projects.Add(project);
                 db.SaveChanges();

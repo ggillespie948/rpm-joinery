@@ -37,14 +37,6 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
                 @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
@@ -81,7 +73,22 @@
             </div>
 
             <br />
+            Tags - these are used to filter projects when someone selects an item
+                   from the projects drop-down menu. You can add multiple tags to a project.
+            <hr />
 
+
+            <div class="form-group">
+                <select class="selectpicker input-large"  id="Type" name="Type[]" multiple>
+                    <option>All</option>
+                    <option>Kitchen</option>
+                    <option>Bathroom</option>
+                    <option>Windows / Doors </option>
+                    <option>Decking / Fencing </option>
+                    <option>Maintenance </option>
+                </select>
+            </div>
+            <br />
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -99,5 +106,9 @@
 
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+      <!-- bootstrap-select -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/infostreams/bootstrap-select/fd227d46de2afed300d97fd0962de80fa71afb3b/dist/css/bootstrap-select.min.css" />
+<script src="https://cdn.rawgit.com/infostreams/bootstrap-select/fd227d46de2afed300d97fd0962de80fa71afb3b/dist/js/bootstrap-select.min.js"></script>
+
+
 }

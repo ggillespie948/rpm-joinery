@@ -12,6 +12,8 @@ namespace RPMJoinery
                         "~/vendor/jquery/jquery.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/imageModal").Include(
+            "~/js/cardCarousel.js",
+            "~/vendor/OwlCarousel2-2.2.1/dist/owl.carousel.min.js",
             "~/js/ImageModal.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
@@ -20,6 +22,8 @@ namespace RPMJoinery
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/vendor/bootstrap/css/bootstrap.css",
                       "~/css/ImageModal.css",
+                      "~/vendor/OwlCarousel2-2.2.1/dist/assets/owl.carousel.min.css",
+                      "~/vendor/OwlCarousel2-2.2.1/dist/assets/owl.theme.default.min.css",
                       "~/css/Site.css"));
 
 
