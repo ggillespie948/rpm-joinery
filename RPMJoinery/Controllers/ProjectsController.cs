@@ -100,10 +100,10 @@ namespace RPMJoinery.Controllers
 
                     //Save image to file
                     Stream st = image.InputStream;
-                    string filename = project.Id.ToString() + "-1";
+                    string filename = db.Projects.Count() + "-1";
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "";
-                    string s3FileName = "@" + filename;
+                    string s3FileName = "" + filename;
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
