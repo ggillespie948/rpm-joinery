@@ -97,96 +97,19 @@ namespace RPMJoinery.Controllers
 
                 if(image != null)
                 {
-
                     //Save image to file
                     Stream st = image.InputStream;
-                    string filename = db.Projects.Count() + "-1";
+                    string filename = db.Projects.ToList().Count() + "-1";
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "";
                     string s3FileName = "" + filename;
+                    project.ImgFilePath = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + filename;
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
                     if (a == true)
                     {
                         Response.Write("successfully uploaded");
-
-                    }
-                    else
-                        Response.Write("Error");
-                }
-
-                if (image2 != null)
-                {
-                    Stream st = image2.InputStream;
-                    var filename = image2.FileName;
-                    string bucketName = "rpmjoinery";
-                    string s3DirectoryName = "";
-                    string s3FileName = "";
-                    bool a;
-                    AmazonUploader myUploader = new AmazonUploader();
-                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
-                    if (a == true)
-                    {
-                        Response.Write("successfully uploaded");
-
-                    }
-                    else
-                        Response.Write("Error");
-                }
-
-                if (image3 != null)
-                {
-                    Stream st = image3.InputStream;
-                    var filename = image3.FileName;
-                    string bucketName = "rpmjoinery";
-                    string s3DirectoryName = "";
-                    string s3FileName = "";
-                    bool a;
-                    AmazonUploader myUploader = new AmazonUploader();
-                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
-                    if (a == true)
-                    {
-                        Response.Write("successfully uploaded");
-
-                    }
-                    else
-                        Response.Write("Error");
-                }
-
-                if (image4 != null)
-                {
-                    Stream st = image4.InputStream;
-                    var filename = image4.FileName;
-                    string bucketName = "rpmjoinery";
-                    string s3DirectoryName = "";
-                    string s3FileName = "";
-                    bool a;
-                    AmazonUploader myUploader = new AmazonUploader();
-                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
-                    if (a == true)
-                    {
-                        Response.Write("successfully uploaded");
-
-                    }
-                    else
-                        Response.Write("Error");
-                }
-
-                if (image5 != null)
-                {
-                    Stream st = image5.InputStream;
-                    var filename = image5.FileName;
-                    string bucketName = "rpmjoinery";
-                    string s3DirectoryName = "";
-                    string s3FileName = "";
-                    bool a;
-                    AmazonUploader myUploader = new AmazonUploader();
-                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
-                    if (a == true)
-                    {
-                        Response.Write("successfully uploaded");
-
                     }
                     else
                         Response.Write("Error");
