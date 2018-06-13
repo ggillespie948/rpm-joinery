@@ -102,8 +102,8 @@ namespace RPMJoinery.Controllers
                     Stream st = image.InputStream;
                     var filename = image.FileName;
                     string bucketName = "rpmjoinery";
-                    string s3DirectoryName = project.Id.ToString();
-                    string s3FileName = project.Id+".1";
+                    string s3DirectoryName = "";
+                    string s3FileName = "";
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
@@ -121,8 +121,8 @@ namespace RPMJoinery.Controllers
                     Stream st = image2.InputStream;
                     var filename = image2.FileName;
                     string bucketName = "rpmjoinery";
-                    string s3DirectoryName = project.Id.ToString();
-                    string s3FileName = project.Id + ".2";
+                    string s3DirectoryName = "";
+                    string s3FileName = "";
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
@@ -140,8 +140,8 @@ namespace RPMJoinery.Controllers
                     Stream st = image3.InputStream;
                     var filename = image3.FileName;
                     string bucketName = "rpmjoinery";
-                    string s3DirectoryName = project.Id.ToString();
-                    string s3FileName = project.Id + ".3";
+                    string s3DirectoryName = "";
+                    string s3FileName = "";
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
@@ -159,8 +159,8 @@ namespace RPMJoinery.Controllers
                     Stream st = image4.InputStream;
                     var filename = image4.FileName;
                     string bucketName = "rpmjoinery";
-                    string s3DirectoryName = project.Id.ToString();
-                    string s3FileName = project.Id + ".4";
+                    string s3DirectoryName = "";
+                    string s3FileName = "";
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
@@ -178,8 +178,8 @@ namespace RPMJoinery.Controllers
                     Stream st = image5.InputStream;
                     var filename = image5.FileName;
                     string bucketName = "rpmjoinery";
-                    string s3DirectoryName = project.Id.ToString();
-                    string s3FileName = project.Id + ".5";
+                    string s3DirectoryName = "";
+                    string s3FileName = "";
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
@@ -198,7 +198,7 @@ namespace RPMJoinery.Controllers
                     tagString += " " + tag;
                 }
                 project.Type = tagString;
-                
+
 
                 db.Projects.Add(project);
                 db.SaveChanges();
