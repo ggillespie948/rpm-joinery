@@ -97,61 +97,99 @@ namespace RPMJoinery.Controllers
 
                 if(image != null)
                 {
-                    //Save image to file
-                    var filename = image.FileName;
-                    var filePath = Server.MapPath("~/img/");
-                    string savedFileName = Path.Combine(filePath, filename);
 
-                    //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath = "/img/"+ image.FileName;
-                    image.SaveAs(savedFileName);
+                    //Save image to file
+                    Stream st = image.InputStream;
+                    var filename = image.FileName;
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = project.Id.ToString();
+                    string s3FileName = project.Id+".1";
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+
+                    }
+                    else
+                        Response.Write("Error");
                 }
 
                 if (image2 != null)
                 {
-                    //Save image to file
+                    Stream st = image2.InputStream;
                     var filename = image2.FileName;
-                    var filePath = Server.MapPath("~/img/");
-                    string savedFileName = Path.Combine(filePath, filename);
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = project.Id.ToString();
+                    string s3FileName = project.Id + ".2";
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
 
-                    //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath2 = "/img/" + image2.FileName;
-                    image2.SaveAs(savedFileName);
+                    }
+                    else
+                        Response.Write("Error");
                 }
 
                 if (image3 != null)
                 {
-                    //Save image to file
+                    Stream st = image3.InputStream;
                     var filename = image3.FileName;
-                    var filePath = Server.MapPath("~/img/");
-                    string savedFileName = Path.Combine(filePath, filename);
-                    //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath3 = "/img/" + image3.FileName;
-                    image3.SaveAs(savedFileName);
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = project.Id.ToString();
+                    string s3FileName = project.Id + ".3";
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+
+                    }
+                    else
+                        Response.Write("Error");
                 }
 
                 if (image4 != null)
                 {
-                    //Save image to file
+                    Stream st = image4.InputStream;
                     var filename = image4.FileName;
-                    var filePath = Server.MapPath("~/img/");
-                    string savedFileName = Path.Combine(filePath, filename);
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = project.Id.ToString();
+                    string s3FileName = project.Id + ".4";
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
 
-                    //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath4 = "/img/" + image4.FileName;
-                    image4.SaveAs(savedFileName);
+                    }
+                    else
+                        Response.Write("Error");
                 }
 
                 if (image5 != null)
                 {
-                    //Save image to file
+                    Stream st = image5.InputStream;
                     var filename = image5.FileName;
-                    var filePath = Server.MapPath("~/img/");
-                    string savedFileName = Path.Combine(filePath, filename);
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = project.Id.ToString();
+                    string s3FileName = project.Id + ".5";
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
 
-                    //attach the uploaded image filepath to the object before saving to the database
-                    project.ImgFilePath5 = "/img/" + image5.FileName;
-                    image5.SaveAs(savedFileName);
+                    }
+                    else
+                        Response.Write("Error");
                 }
 
                 string tagString = "";
@@ -160,6 +198,7 @@ namespace RPMJoinery.Controllers
                     tagString += " " + tag;
                 }
                 project.Type = tagString;
+                
 
                 db.Projects.Add(project);
                 db.SaveChanges();
