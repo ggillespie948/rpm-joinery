@@ -100,7 +100,7 @@ namespace RPMJoinery.Controllers
 
                     //Save image to file
                     Stream st = image.InputStream;
-                    string filename = "test";
+                    string filename = project.Id.ToString() + "-1";
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "";
                     string s3FileName = "@" + filename;
@@ -199,6 +199,7 @@ namespace RPMJoinery.Controllers
                 }
                 project.Type = tagString;
 
+                project.ImgFilePath = "";
 
                 db.Projects.Add(project);
                 db.SaveChanges();
