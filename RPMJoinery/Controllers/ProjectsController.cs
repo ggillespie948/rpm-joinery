@@ -116,6 +116,90 @@ namespace RPMJoinery.Controllers
                         Response.Write("Error");
                 }
 
+                if (image2 != null)
+                {
+                    //Save image to file
+                    Stream st = image2.InputStream;
+                    db.Projects.Find();
+                    string filename = db.Projects.ToList().Count() + "-1";
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = "";
+                    string s3FileName = "" + filename;
+                    project.ImgFilePath2 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + filename;
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+                    }
+                    else
+                        Response.Write("Error");
+                }
+
+                if (image3 != null)
+                {
+                    //Save image to file
+                    Stream st = image3.InputStream;
+                    db.Projects.Find();
+                    string filename = db.Projects.ToList().Count() + "-1";
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = "";
+                    string s3FileName = "" + filename;
+                    project.ImgFilePath3 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + filename;
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+                    }
+                    else
+                        Response.Write("Error");
+                }
+
+                if (image4 != null)
+                {
+                    //Save image to file
+                    Stream st = image4.InputStream;
+                    db.Projects.Find();
+                    string filename = db.Projects.ToList().Count() + "-1";
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = "";
+                    string s3FileName = "" + filename;
+                    project.ImgFilePath4 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + filename;
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+                    }
+                    else
+                        Response.Write("Error");
+                }
+
+                if (image5 != null)
+                {
+                    //Save image to file
+                    Stream st = image5.InputStream;
+                    db.Projects.Find();
+                    string filename = db.Projects.ToList().Count() + "-1";
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = "";
+                    string s3FileName = "" + filename;
+                    project.ImgFilePath5 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + filename;
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+                    }
+                    else
+                        Response.Write("Error");
+                }
+
                 string tagString = "";
                 foreach(string tag in type)
                 {
