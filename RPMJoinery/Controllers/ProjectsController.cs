@@ -94,8 +94,9 @@ namespace RPMJoinery.Controllers
         {
             if (ModelState.IsValid)
             {
+                project.ImgFilePath = "";
 
-                if(image != null)
+                if (image != null)
                 {
                     //Save image to file
                     Stream st = image.InputStream;
@@ -103,7 +104,7 @@ namespace RPMJoinery.Controllers
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "";
                     string s3FileName = "" + filename;
-                    project.ImgFilePath = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + filename;
+                    project.ImgFilePath = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + s3FileName;
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
@@ -122,7 +123,7 @@ namespace RPMJoinery.Controllers
                 }
                 project.Type = tagString;
 
-                project.ImgFilePath = "";
+                
 
                 db.Projects.Add(project);
                 db.SaveChanges();
