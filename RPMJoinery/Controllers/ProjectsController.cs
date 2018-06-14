@@ -116,6 +116,26 @@ namespace RPMJoinery.Controllers
                         Response.Write("Error");
                 }
 
+                if (image2 != null)
+                {
+                    //Save image to file
+                    Stream st = image2.InputStream;
+                    string filename = db.Projects.ToList().Count() + "-1";
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = "";
+                    string s3FileName = "" + filename;
+                    project.ImgFilePath2 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + s3FileName;
+                    bool a;
+                    AmazonUploader myUploader = new AmazonUploader();
+                    a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+                    }
+                    else
+                        Response.Write("Error");
+                }
+
                 string tagString = "";
                 foreach(string tag in type)
                 {
