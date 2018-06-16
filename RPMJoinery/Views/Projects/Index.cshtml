@@ -3,59 +3,44 @@
 <br />
 <br />
 <div class="container">
-
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
         Projects
         <small>All</small>
     </h1>
-
     @if (ViewBag.IsAuthenticated)
     {
         <a href="@Url.Action("Create", "Projects")" class="btn btn-success">Add New Project </a>
         <hr />
         <br />
     }
-
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="@Url.Action("Index", "Home")">Home</a>
         </li>
         <li class="breadcrumb-item active">Projects</li>
     </ol>
-
-    <!-- Project One -->
-@foreach (var item in Model)
-{
-    <div class="row">
-        <div class="col-md-7">
-            <div class="card h-100">
-                <a href="@Url.Action("Details", "Projects", new { id = item.Id })"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImgFilePath)" alt=""></a>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card h-100">
+                    <a href="@Url.Action("Details", "Projects", new { id = item.Id })"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImgFilePath)" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                <a href="@Url.Action("Details", "Projects", new { id = item.Id })" class="btn btn-primary">Details</a>
+                @if (ViewBag.IsAuthenticated)
+                {
+                    <a href="@Url.Action("Delete", "Projects", new { id = item.Id })" class="btn btn-danger">Delete </a>
+                }
             </div>
         </div>
-        <div class="col-md-5">
-            <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
-            <p>@Html.DisplayFor(modelItem => item.Description)</p>
-
-            <a href="@Url.Action("Details", "Projects", new { id = item.Id })" class="btn btn-primary">Details</a>
-
-            @if (ViewBag.IsAuthenticated)
-            {
-                <a href="@Url.Action("Delete", "Projects", new { id = item.Id })" class="btn btn-danger">Delete </a>
-            }
-            
-        </div>
-    </div>
-    <!-- /.row -->
-
+        <hr>
+    }
     <hr>
-}
-
-
-
-
-    <hr>
-
     <!-- Pagination -->
     <ul class="pagination justify-content-center">
         <li class="page-item">
@@ -80,7 +65,6 @@
             </a>
         </li>
     </ul>
-
 </div>
 <!-- /.container -->
 @section Scripts {
