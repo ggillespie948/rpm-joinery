@@ -67,3 +67,22 @@
 .carousel-control {
     z-index: 2;
 }
+
+.credit-container {
+    background-color: white;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.customer-comments-container {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

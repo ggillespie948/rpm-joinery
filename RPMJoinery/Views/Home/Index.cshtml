@@ -53,39 +53,51 @@
 <div class="container">
 
     <h1 class="my-4">Welcome to RPM Joinery</h1>
-
+    <hr />
     <!-- Marketing Icons Section -->
+    <!-- Features Section -->
     <div class="row">
-        <div class="col-lg-12 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                </div>
-                <div class="card-footer">
-                    <a class="btn btn-primary" href="@Url.Action("About", "Home")"> Learn More </a>
-                </div>
-            </div>
+        <div class="col-lg-6">
+            <h2>Dundee, Fife and Angus</h2>
+            <p>We prove our joinery and maintainance services to homeowners across Dundee, Fife and Angus areas.</p>
+            <p>Whatever the requirements of the work you require our team will carry out the works to your exact specifications. All at a great price.</p>
+            <p>Feel free to contact us through the contact page or directly on 07970058622. Any size of job we will give you a free quote.</p>
+
+            <p>Some of the typical work undertaken by RPM includes: </p>
+            <ul>
+                <li>Bathrooms</li>
+                <li>Kitchens</li>
+                <li>Fencing / Decking</li>
+                <li>Property refurbishment</li>
+                <li>Doors & Windows </li>
+            </ul>
+            <p>For a comprehensive list of the services we offer please visit the services page. You can also view relevant work we have carried out recently in projects page.
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
         </div>
     </div>
     <!-- /.row -->
+    <!-- /.row -->
+    <hr />
     <!-- Portfolio Section -->
     <h2>Portfolio: Recent Projects</h2>
     <div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImgFilePath)" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="@Url.Action("Details", "Projects", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Title)</a>
-                    </h4>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImgFilePath)" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="@Url.Action("Details", "Projects", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Title)</a>
+                        </h4>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-        
+        }
+
         <div class="col-md-12 text-center">
             <a href="@Url.Action("Index", "Projects")" class="btn btn-primary btn-lg">View Full Portfolio</a>
             <br>
@@ -95,24 +107,7 @@
         </div>
     </div>
     <!-- /.row -->
-    <!-- Features Section -->
-    <div class="row">
-        <div class="col-lg-6">
-            <h2>Some other heading</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis:</p>
-            <ul>
-                <li>Lorem ipsum dolo</li>
-                <li>Lorem ipsum dolo</li>
-                <li>Lorem ipsum dolo</li>
-                <li>Lorem ipsum dolo</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-        </div>
-        <div class="col-lg-6">
-            <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
-        </div>
-    </div>
-    <!-- /.row -->
+
 
     <hr>
 

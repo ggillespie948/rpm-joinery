@@ -76,12 +76,16 @@
     @Scripts.Render("~/bundles/imageModal")
     @RenderSection("scripts", required: false)
 </body>
+<div class="credit-container" id="credit-container">
+    <a href="@Url.Action("About","Home")"> <img src="../../img/DttLogo.png"  height="87.75"   alt="Dundee Trusted Trader Scheme Logo"> </a>
+    <a href="@Url.Action("About","Home")"> <img src="../../img/ArtsLogo.png" height="87.75" alt="Angus Reputable Trader Logo"> </a>
+</div>
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; RPM Joinery & Maintainance 2018</p>
-            <p class="m-0 text-center text-white">Website Created by Gary Gillespie</p>
-        </div>
-        <!-- /.container -->
-    </footer>
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; RPM Joinery & Maintainance 2018</p>
+        <p class="m-0 text-center text-white">Website Created by Gary Gillespie</p>
+    </div>
+    <!-- /.container -->
+</footer>
 </html>
