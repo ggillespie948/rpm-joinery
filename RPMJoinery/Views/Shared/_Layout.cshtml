@@ -3,11 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="RPM Joinery & Maintenance provide top quality joinery and maintenance services to Dundee, Angus and Fife, all at a great price.">
+    <meta name="keywords" content="RPM joinery maintenance, dundee joiner, dundee joinery, lochee joiner, broughty ferry joiner, rpm dundee, kitchen fitting dundee, decking dundee, reliable joiner dundee, flat renovation dundee, bathroom fitting dundee" />
     <meta name="author" content="">
-    <title>RPM Joinery & Maintainance Dundee</title>
-    <!-- <title>@ViewBag.Title - My ASP.NET Application</title> -->
-    
+    <title>RPM Joinery & Maintenance | Dundee Joinery Services </title>
+
+    <!-- Open Graph Meta Tags- used for linking website to social media sites -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="RPM Joinery & Maintenance Dundee" />
+    <meta property="og:description" content="Check out http://rpmjoinery.com!  Reliable Dundee Joiners for all your Joinery needs in Dundee, quality services provided kitchens, bathrooms, windows, doors, flooring, decking, complete renovations and more! We take pride in providing top quality services at a great price. Get in touch now for a free no-obligation quote." />
+
+
     @Styles.Render("~/Content/css")
 
 </head>
@@ -48,20 +57,15 @@
                         </div>
                     </li>
 
-
                     @if (Request.IsAuthenticated)
                     {
                         <li>
-
                             <form method="post" action="@Url.Action("LogOff", "Account")" id="signoutfrm" style="display:none;">
                                 @Html.AntiForgeryToken()
                             </form>
-
-
                             <a href="" class="btn btn-danger" onclick="$('#signoutfrm').submit(); return false;">Log Out</a>
                         </li>
                     }
-                   
                 </ul>
             </div>
         </div>
