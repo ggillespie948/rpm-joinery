@@ -19,7 +19,12 @@ namespace RPMJoinery.Controllers
         // GET: Projects
         public ActionResult Index()
         {
-            try{
+            ViewBag.Title = "RPM Joinery & Maintenance | Projects";
+            ViewBag.MetaDescription = "RPM Joinery & Mainentance have completed a wide variety of different projects, below you can browse a range of previous projects we have completed for our loyl customers.";
+            ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, rpm bathrooms, windows, doors, floors, fencing, decking, rpm small maintenance jobs, property management. rpm projects, rpm example work, rpm portfolio";
+
+            try
+            {
                 var usedID = GetCurrentUserID();
                 var username = User.Identity.GetUserName();
 
@@ -101,9 +106,9 @@ namespace RPMJoinery.Controllers
                     Stream st = image.InputStream;
                     string filename = db.Projects.ToList().Count() + "-1";
                     string bucketName = "rpmjoinery";
-                    string s3DirectoryName = "";
+                    string s3DirectoryName = "projects";
                     string s3FileName = "" + filename;
-                    project.ImgFilePath = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + s3FileName;
+                    project.ImgFilePath = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/projects/" + s3FileName;
                     bool a;
                     AmazonUploader myUploader = new AmazonUploader();
                     a = myUploader.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
@@ -121,12 +126,72 @@ namespace RPMJoinery.Controllers
                     Stream st = image2.InputStream;
                     string filename = db.Projects.ToList().Count() + "-2";
                     string bucketName = "rpmjoinery";
-                    string s3DirectoryName = "";
+                    string s3DirectoryName = "projects";
                     string s3FileName = "" + filename;
-                    project.ImgFilePath2 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/" + s3FileName;
+                    project.ImgFilePath2 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/projects/" + s3FileName;
                     bool a;
                     AmazonUploader myUploader2 = new AmazonUploader();
                     a = myUploader2.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+                    }
+                    else
+                        Response.Write("Error");
+                }
+
+                if (image3 != null)
+                {
+                    //Save image to file
+                    Stream st = image3.InputStream;
+                    string filename = db.Projects.ToList().Count() + "-3";
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = "projects";
+                    string s3FileName = "" + filename;
+                    project.ImgFilePath3 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/projects/" + s3FileName;
+                    bool a;
+                    AmazonUploader myUploader3 = new AmazonUploader();
+                    a = myUploader3.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+                    }
+                    else
+                        Response.Write("Error");
+                }
+
+                if (image4 != null)
+                {
+                    //Save image to file
+                    Stream st = image4.InputStream;
+                    string filename = db.Projects.ToList().Count() + "-4";
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = "projects";
+                    string s3FileName = "" + filename;
+                    project.ImgFilePath4 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/projects/" + s3FileName;
+                    bool a;
+                    AmazonUploader myUploader4 = new AmazonUploader();
+                    a = myUploader4.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
+                    if (a == true)
+                    {
+                        Response.Write("successfully uploaded");
+                    }
+                    else
+                        Response.Write("Error");
+                }
+
+                if (image5 != null)
+                {
+                    //Save image to file
+                    Stream st = image5.InputStream;
+                    string filename = db.Projects.ToList().Count() + "-5";
+                    string bucketName = "rpmjoinery";
+                    string s3DirectoryName = "projects";
+                    string s3FileName = "" + filename;
+                    project.ImgFilePath5 = "https://s3-eu-west-1.amazonaws.com/rpmjoinery/projects/" + s3FileName;
+                    bool a;
+                    AmazonUploader myUploader5 = new AmazonUploader();
+                    a = myUploader5.sendMyFileToS3(st, bucketName, s3DirectoryName, s3FileName);
                     if (a == true)
                     {
                         Response.Write("successfully uploaded");
