@@ -19,9 +19,56 @@ namespace RPMJoinery.Controllers
         // GET: Projects
         public ActionResult Index()
         {
-            ViewBag.Title = "RPM Joinery & Maintenance | Projects";
-            ViewBag.MetaDescription = "RPM Joinery & Mainentance have completed a wide variety of different projects, below you can browse a range of previous projects we have completed for our loyl customers.";
-            ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, rpm bathrooms, windows, doors, floors, fencing, decking, rpm small maintenance jobs, property management. rpm projects, rpm example work, rpm portfolio";
+            if(TempData["searchTag"] == null)
+            {
+                TempData["searchTag"] = "All";
+                TempData["searchTitle"] = "All";
+            }
+
+
+            ViewBag.SearchTitle = TempData["searchTitle"];
+
+            switch (TempData["searchTag"].ToString())
+            {
+                case "All":
+                    ViewBag.Title = "RPM Joinery & Maintenance | Projects";
+                    ViewBag.MetaDescription = "RPM Joinery & Mainentance have completed a wide variety of different projects, below you can browse a range of previous projects we have completed for our loyl customers.";
+                    ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, rpm bathrooms, windows, doors, floors, fencing, decking, rpm small maintenance jobs, property management. rpm projects, rpm example work, rpm portfolio";
+                    break;
+
+                case "Kitchen":
+                    ViewBag.Title = "RPM Joinery & Maintenance | Kitchens";
+                    ViewBag.MetaDescription = "Complete kitchen installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+                    ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, kitchen installation dundee, new kitchen dundee, dundee kitchen fitter";
+                    break;
+
+                case "Bathroom":
+                    ViewBag.Title = "RPM Joinery & Maintenance | Bathrooms";
+                    ViewBag.MetaDescription = "Complete bathroom installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+                    ViewBag.MetaKeywords = "RPM joinery maintenance, rpm bathrooms, bathroom installation dundee, new bathroom dundee, dundee bathroom wetwall";
+                    break;
+
+                case "Windows/Doors":
+                    ViewBag.Title = "RPM Joinery & Maintenance | Windows and Doors";
+                    ViewBag.MetaDescription = "Complete door and window installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+                    ViewBag.MetaKeywords = "RPM joinery maintenance, rpm windows, doors installation dundee, new doors dundee, dundee window fitter";
+                    break;
+
+                case "Decking/Fencing":
+                    ViewBag.Title = "RPM Joinery & Maintenance | Decking and Fencing";
+                    ViewBag.MetaDescription = "Complete decking and fencing installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+                    ViewBag.MetaKeywords = "RPM joinery maintenance, rpm fence, fence installation dundee, new decking dundee, dundee decking joiner";
+                    break;
+
+                case "Maintenance":
+                    ViewBag.Title = "RPM Joinery & Maintenance | Small Maintenance";
+                    ViewBag.MetaDescription = "Small maintenance jobs by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+                    ViewBag.MetaKeywords = "RPM joinery maintenance, rpm maintenance, dundee maintenance, small maintenance joiner, dundee joiner property management";
+                    break;
+            }
+
+            // Switch - change SEO keywords/description based on the tags which are being searched for
+            
 
             try
             {
@@ -44,9 +91,55 @@ namespace RPMJoinery.Controllers
             }
 
             //get TYPE 
-            // return View(db.Projects.Where(x => x.UserId == userID).ToList());
+            if(TempData["searchTag"] != null && TempData["searchTag"].ToString() != "All")
+            {
+                return View(db.Projects.AsEnumerable().Where(x => ContainsSearchTag(TempData["searchTag"].ToString(), x.Type) == true).ToList());
+            } else
+            {
+                return View(db.Projects.ToList());
+            }
 
-            return View(db.Projects.ToList());
+        }
+
+        public ActionResult Kitchens()
+        {
+            TempData["searchTag"] = "Kitchen";
+            TempData["searchTitle"] = "Kitchens";
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Bathroom()
+        {
+            TempData["searchTag"] = "Bathroom";
+            TempData["searchTitle"] = "Bathrooms";
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult WindowsDoors()
+        {
+            TempData["searchTag"] = "Windows/Doors";
+            TempData["searchTitle"] = "Windows & Doors";
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeckingFencing()
+        {
+            TempData["searchTag"] = "Decking/Fencing";
+            TempData["searchTitle"] = "Decking & Fencing";
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Maintenance()
+        {
+            TempData["searchTag"] = "Maintenance";
+            TempData["searchTitle"] = "Maintenance";
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult All()
+        {
+            TempData["searchTag"] = "All";
+            return RedirectToAction("Index");
         }
 
         // GET: Projects/Details/5
@@ -200,13 +293,16 @@ namespace RPMJoinery.Controllers
                         Response.Write("Error");
                 }
 
-                string tagString = "All ";
+                string tagString = "";
                 if(type.Count() > 0)
                 {
                     foreach(string tag in type)
                     {
                         tagString += " " + tag;
                     }
+                } else
+                {
+                    project.Type = "All ";
                 }
                 project.Type = tagString;
 
@@ -217,6 +313,18 @@ namespace RPMJoinery.Controllers
             }
 
             return View(project);
+        }
+
+        public bool ContainsSearchTag(string tag, string tagString)
+        {
+            string[] strings = tagString.Split(' ');
+            foreach(string s in strings)
+            {
+                if (s == tag)
+                    return true;
+            }
+
+            return false;
         }
 
         // GET: Projects/Edit/5
