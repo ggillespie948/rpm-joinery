@@ -68,7 +68,11 @@ namespace RPMJoinery.Controllers
         public ActionResult SendMail()
         {
             var smtpClient = new SmtpClient();
-            smtpClient.Send(new MailMessage("gzgillespie@outlook.com", "gzgillespie@outlook.com", "Subject", "Body text test test test"));
+            var msg = new MailMessage();
+            msg.To.Add("gzgillespie@outlook.com");
+            msg.Subject = "Test";
+            msg.Body = "This is just a test email";
+            smtpClient.Send(msg);
             return RedirectToAction("About");
         }
 
