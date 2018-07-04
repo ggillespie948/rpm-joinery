@@ -10,91 +10,151 @@
     {
         @Html.AntiForgeryToken()
     
-        <div class="form-horizontal">
-            <h4>Add a new Project</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.HiddenFor(model => model.UserID, new { id = "UserId", Value = ViewBag.UserId})
-                </div>
-            </div>
+    <div class="form-horizontal">
+        <h1>Add a new Project</h1>
+        <hr />
+        <br />
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                </div>
-            </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                Upload Cover Image (Single image displayed in search results)
-                <hr>
-                <div class="col-md-10">
-                    <input name="Image" type="file" />
-                    @Html.ValidationMessageFor(model => model.ImgFilePath)
-                </div>
-            </div>
-            <br />
-
-
-            <div class="form-group">
-                Upload Other Images.. (Optional - Up to 4 extra images, displayed on project details page)
-                <div class="col-md-10">
-                    <input name="Image2" type="file"  multiple />
-                    @Html.ValidationMessageFor(model => model.ImgFilePath)
-
-                    <input name="Image3" type="file" multiple />
-                    @Html.ValidationMessageFor(model => model.ImgFilePath2)
-
-                    <input name="Image4" type="file" multiple />
-                    @Html.ValidationMessageFor(model => model.ImgFilePath3)
-
-                    <input name="Image5" type="file" multiple />
-                    @Html.ValidationMessageFor(model => model.ImgFilePath4)
-                </div>
-            </div>
-
-            <br />
-            Tags - these are used to filter projects when someone selects an item
-                   from the projects drop-down menu. You can add multiple tags to a project.
-            <hr />
-
-
-            <div class="form-group">
-                <select class="selectpicker input-large"  id="Type" name="Type[]" multiple>
-                    <option>All</option>
-                    <option>Kitchen</option>
-                    <option>Bathroom</option>
-                    <option>Windows / Doors </option>
-                    <option>Decking / Fencing </option>
-                    <option>Maintenance </option>
-                </select>
-            </div>
-            <br />
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+        <h4> Project Information </h4>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.UserID, new { id = "UserId", Value = ViewBag.UserId })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+
+
+        <h4> Upload Cover Image (Single image displayed in search results) </h4>
+        <div class="form-group">
+            <hr>
+            <div class="col-md-10">
+                <input name="Image" type="file" />
+                @Html.ValidationMessageFor(model => model.ImgFilePath)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ImgDescription"> Image Description </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ImgDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImgDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+
+        <h4>Upload Other Images.. (Optional - Up to 4 extra images, displayed on project details page) </h4>
+        <hr />
+            <div class="form-group">
+                <h5> Image 2 </h5>
+                <div class="col-md-10">
+                    <input name="Image2" type="file" multiple />
+                    @Html.ValidationMessageFor(model => model.ImgFilePath2)
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription2"> Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5> Image 3 </h5>
+                <input name="Image3" type="file" multiple />
+                @Html.ValidationMessageFor(model => model.ImgFilePath3)
+
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription3" > Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5> Image 4 </h5>
+                <input name="Image4" type="file" multiple />
+                @Html.ValidationMessageFor(model => model.ImgFilePath4)
+
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription4"> Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription4, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription4, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5> Image 5 </h5>
+                <input name="Image5" type="file" multiple />
+                @Html.ValidationMessageFor(model => model.ImgFilePath5)
+
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription5"> Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription5, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription5, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        <br />
+        <h4>
+            Tags - these are used to filter projects when someone selects an item
+            from the projects drop-down menu. You can add multiple tags to a project.
+        </h4>
+        <div class="text-danger">
+            <h6> Note: At least one tag must be selected, 'All' should be selected with other tags if possible.  </h6>
+        </div>
+
+        <hr />
+
+
+        <div class="form-group">
+            <select class="selectpicker input-large" id="Type" name="Type[]" multiple>
+                <option>All</option>
+                <option>Kitchen</option>
+                <option>Bathroom</option>
+                <option>Windows / Doors </option>
+                <option>Decking / Fencing </option>
+                <option>Maintenance </option>
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
     }
 
     <div>
