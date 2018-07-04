@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -62,6 +63,14 @@ namespace RPMJoinery.Controllers
             ViewBag.MetaKeywords = "";
 
             return View();
+        }
+
+        public ActionResult SendMail()
+        {
+            var smtpClient = new SmtpClient();
+            smtpClient.Send(new MailMessage("gzgillepies@outlook.com", "gzgillespie@outlook.com", "Subject", "Body text test test test"));
+
+            return RedirectToAction("About");
         }
 
         

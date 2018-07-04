@@ -15,6 +15,9 @@ namespace RPMJoinery
             "~/js/cardCarousel.js",
             "~/js/ImageModal.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/contact").Include(
+            "~/js/contact_me.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/vendor/bootstrap/js/bootstrap.bundle.min.js"));
 
