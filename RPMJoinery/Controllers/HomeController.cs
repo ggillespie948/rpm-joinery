@@ -6,6 +6,8 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace RPMJoinery.Controllers
 {
@@ -65,14 +67,24 @@ namespace RPMJoinery.Controllers
             return View();
         }
 
-        public ActionResult SendMail()
+        [HttpPost]
+        public ActionResult SendMail(string name, string phone, string email, string message)
         {
-            var smtpClient = new SmtpClient();
-            var msg = new MailMessage();
-            msg.To.Add("gzgillespie@outlook.com");
-            msg.Subject = "Test";
-            msg.Body = "This is just a test email";
-            smtpClient.Send(msg);
+            RestClient client = new RestClient();
+            client.BaseUrl = new Uri("https://api.mailgun.net/v3");
+            client.Authenticator =
+                new HttpBasicAuthenticator("api",
+                                            "983bb0f5a1121372c9f1aa8cf148ff0b-770f03c4-abd69101");
+            RestRequest request = new RestRequest();
+            request.AddParameter("domain", "sandboxf1ae6ec4bee441d997553c7956faeaed.mailgun.org", ParameterType.UrlSegment);
+            request.Resource = "{domain}/messages";
+            request.AddParameter("from", name + "-" + phone + " <mailgun@sandboxf1ae6ec4bee441d997553c7956faeaed.mailgun.org>");
+            request.AddParameter("to", "gzgillespie@outlook.com");
+            request.AddParameter("subject", "RPM Joinery Contact Form Entry");
+            request.AddParameter("text", message);
+            request.Method = Method.POST;
+            client.Execute(request);
+
             return RedirectToAction("About");
         }
 
