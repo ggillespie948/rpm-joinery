@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using RestSharp;
 using RestSharp.Authenticators;
+using System.Web.Configuration;
 
 namespace RPMJoinery.Controllers
 {
@@ -70,15 +71,19 @@ namespace RPMJoinery.Controllers
         [HttpPost]
         public ActionResult SendMail(string name, string phone, string email, string message)
         {
+            string domain = WebConfigurationManager.AppSettings["MailGunDomain"];
+            string apikey = WebConfigurationManager.AppSettings["MailGunApiKey"];
+
+
             RestClient client = new RestClient();
             client.BaseUrl = new Uri("https://api.mailgun.net/v3");
             client.Authenticator =
                 new HttpBasicAuthenticator("api",
-                                            "983bb0f5a1121372c9f1aa8cf148ff0b-770f03c4-abd69101");
+                                            apikey);
             RestRequest request = new RestRequest();
-            request.AddParameter("domain", "sandboxf1ae6ec4bee441d997553c7956faeaed.mailgun.org", ParameterType.UrlSegment);
+            request.AddParameter("domain", domain, ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
-            request.AddParameter("from", name + "-" + phone + " <mailgun@sandboxf1ae6ec4bee441d997553c7956faeaed.mailgun.org>");
+            request.AddParameter("from", name + "-" + phone + " <mailgun@"+domain);
             request.AddParameter("to", "gzgillespie@outlook.com");
             request.AddParameter("subject", "RPM Joinery Contact Form Entry");
             request.AddParameter("text", message);
