@@ -87,3 +87,15 @@
     margin-right: auto;
     width: 50%;
 }
+
+.centerDiv {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: x-large;
+}
+
+.navcurve {
+    border-radius: 0 0 20% 20% / 15%;
+}
