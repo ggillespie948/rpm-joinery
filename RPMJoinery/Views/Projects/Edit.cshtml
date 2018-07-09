@@ -1,15 +1,162 @@
 ﻿@model RPMJoinery.Models.Project
 
+<br />
+<br />
 
 <div class="container">
 
-    <br />
-    <br />
+    @using (Html.BeginForm("Edit", "Projects", FormMethod.Post, new { enctype = "form-data" }))
+    {
+        @Html.AntiForgeryToken()
 
-    <h2>Editing is not support at this time.</h2>
+        <div class="form-horizontal">
+            <h1>Edit Project</h1>
+            <hr />
+            <br />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <h4> Project Information </h4>
+            <hr />
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.UserID, new { id = "UserId", Value = ViewBag.UserId })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
 
 
-    
+            <h4>Cover Image (Single image displayed in search results) </h4>
+            <div class="form-group">
+                <hr>
+                <div class="col-md-8">
+                    <img class="img-fluid" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath)" alt="@Html.DisplayFor(modelItem => modelItem.ImgDescription)">
+                    <p align="center"> <b> @Html.DisplayFor(modelItem => modelItem.ImgDescription) </b> </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription"> Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+
+            <h4> Other Images.. (Optional - Up to 4 extra images, displayed on project details page) </h4>
+            <hr />
+            <div class="form-group">
+                <h5> Image 2 </h5>
+                <div class="col-md-8">
+                    <img class="img-fluid" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath2)" alt="@Html.DisplayFor(modelItem => modelItem.ImgDescription2)">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription2"> Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5> Image 3 </h5>
+                <div class="col-md-8">
+                    <img class="img-fluid" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath3)" alt="@Html.DisplayFor(modelItem => modelItem.ImgDescription3)">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription3"> Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5> Image 4 </h5>
+                <div class="col-md-8">
+                    <img class="img-fluid" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath4)" alt="@Html.DisplayFor(modelItem => modelItem.ImgDescription4)">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription4"> Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription4, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription4, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5> Image 5 </h5>
+                <div class="col-md-8">
+                    <img class="img-fluid" src="@Html.DisplayFor(modelItem => modelItem.ImgFilePath5)" alt="@Html.DisplayFor(modelItem => modelItem.ImgDescription5)">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ImgDescription5"> Image Description </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImgDescription5, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImgDescription5, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <br />
+            <h4>
+                Tags - these are used to filter projects when someone selects an item
+                from the projects drop-down menu. You can add multiple tags to a project.
+            </h4>
+            <div class="text-danger">
+                <h6> Note: At least one tag must be selected, 'All' should be selected with other tags if possible.  </h6>
+            </div>
+            <div class="text-danger">
+                <h6> Note: When editing a project tags must be reselected  </h6>
+            </div>
+            <hr />
+            <div class="form-group">
+                <select class="selectpicker input-large" id="Type" name="Type[]" multiple>
+                    <option>All</option>
+                    <option>Kitchen</option>
+                    <option>Bathroom</option>
+                    <option>Windows/Doors</option>
+                    <option>Decking/Fencing </option>
+                    <option>Maintenance</option>
+                </select>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save Changes" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+
 
     <div>
         @Html.ActionLink("Back to List", "Index")
@@ -19,6 +166,9 @@
 
 
 @section Scripts {
+    <!-- bootstrap-select -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/infostreams/bootstrap-select/fd227d46de2afed300d97fd0962de80fa71afb3b/dist/css/bootstrap-select.min.css" />
+    <script src="https://cdn.rawgit.com/infostreams/bootstrap-select/fd227d46de2afed300d97fd0962de80fa71afb3b/dist/js/bootstrap-select.min.js"></script>
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
         $('#projects-link').addClass('active');

@@ -348,7 +348,7 @@ namespace RPMJoinery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserID,Title,Description,Type,Details")] Project project)
+        public ActionResult Edit([Bind(Include = "Id,UserID,Title,Description,Type,Details,ImgDescription,ImgDescription2,ImgDescription3,ImgDescription4,ImgDescription5")] Project project)
         {
             if (ModelState.IsValid)
             {
