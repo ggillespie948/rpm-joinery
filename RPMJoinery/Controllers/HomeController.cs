@@ -74,6 +74,11 @@ namespace RPMJoinery.Controllers
             string domain = WebConfigurationManager.AppSettings["MailGunDomain"];
             string apikey = WebConfigurationManager.AppSettings["MailGunApiKey"];
 
+            if(domain == null || domain == "" || apikey == null || apikey == "")
+            {
+                return RedirectToAction("Index");
+            }
+
 
             RestClient client = new RestClient();
             client.BaseUrl = new Uri("https://api.mailgun.net/v3");
