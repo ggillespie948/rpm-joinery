@@ -5,7 +5,7 @@
 
 <div class="container">
 
-    @using (Html.BeginForm("Edit", "Projects", FormMethod.Post, new { enctype = "form-data" }))
+    @using (Html.BeginForm("Edit", "Projects", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
