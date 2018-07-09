@@ -348,8 +348,13 @@ namespace RPMJoinery.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserID,Title,Description,Type,Details,ImgDescription,ImgDescription2,ImgDescription3,ImgDescription4,ImgDescription5")] Project project)
+        public ActionResult Edit([Bind(Include = "Id,UserID,Title,Description,Type,Details,ImgFilePath,ImgFilePath2,ImgFilePath3,ImgFilePath4,ImgFilePath5,ImgDescription,ImgDescription2,ImgDescription3,ImgDescription4,ImgDescription5")] Project project, string[] type)
         {
+            if(project.ImgFilePath==null)
+            {
+                return RedirectToAction("Create");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
