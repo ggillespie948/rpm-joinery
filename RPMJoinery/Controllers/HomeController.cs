@@ -68,6 +68,13 @@ namespace RPMJoinery.Controllers
             return View();
         }
 
+        public ActionResult Cookie()
+        {
+            ViewBag.Title = "Cookie Policy | RPM Joinery & Maintenance";
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SendMail(string name, string phone, string email, string message)
         {
