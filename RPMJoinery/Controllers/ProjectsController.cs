@@ -23,6 +23,9 @@ namespace RPMJoinery.Controllers
             {
                 TempData["searchTag"] = "All";
                 TempData["searchTitle"] = "All";
+                ViewBag.Title = "Projects | RPM Joinery & Maintenance";
+                ViewBag.MetaDescription = "RPM Joinery & Mainentance have completed a wide variety of different projects, below you can browse a range of previous projects we have completed for our loyl customers.";
+                ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, rpm bathrooms, windows, doors, floors, fencing, decking, rpm small maintenance jobs, property management. rpm projects, rpm example work, rpm portfolio";
             }
 
 
@@ -31,37 +34,37 @@ namespace RPMJoinery.Controllers
             switch (TempData["searchTag"].ToString())
             {
                 case "All":
-                    ViewBag.Title = "RPM Joinery & Maintenance | Projects";
+                    ViewBag.Title = "Projects | RPM Joinery & Maintenance";
                     ViewBag.MetaDescription = "RPM Joinery & Mainentance have completed a wide variety of different projects, below you can browse a range of previous projects we have completed for our loyl customers.";
                     ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, rpm bathrooms, windows, doors, floors, fencing, decking, rpm small maintenance jobs, property management. rpm projects, rpm example work, rpm portfolio";
                     break;
 
                 case "Kitchen":
-                    ViewBag.Title = "RPM Joinery & Maintenance | Kitchens";
+                    ViewBag.Title = "Kitchens | RPM Joinery & Maintenance";
                     ViewBag.MetaDescription = "Complete kitchen installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
                     ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, kitchen installation dundee, new kitchen dundee, dundee kitchen fitter";
                     break;
 
                 case "Bathroom":
-                    ViewBag.Title = "RPM Joinery & Maintenance | Bathrooms";
+                    ViewBag.Title = "Bathrooms & Wet Walls | RPM Joinery & Maintenance";
                     ViewBag.MetaDescription = "Complete bathroom installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
                     ViewBag.MetaKeywords = "RPM joinery maintenance, rpm bathrooms, bathroom installation dundee, new bathroom dundee, dundee bathroom wetwall";
                     break;
 
                 case "Windows/Doors":
-                    ViewBag.Title = "RPM Joinery & Maintenance | Windows and Doors";
+                    ViewBag.Title = "Windows & Doors | RPM Joinery & Maintenance";
                     ViewBag.MetaDescription = "Complete door and window installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
                     ViewBag.MetaKeywords = "RPM joinery maintenance, rpm windows, doors installation dundee, new doors dundee, dundee window fitter";
                     break;
 
                 case "Decking/Fencing":
-                    ViewBag.Title = "RPM Joinery & Maintenance | Decking and Fencing";
+                    ViewBag.Title = "Decking & Fencing | RPM Joinery & Maintenance";
                     ViewBag.MetaDescription = "Complete decking and fencing installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
                     ViewBag.MetaKeywords = "RPM joinery maintenance, rpm fence, fence installation dundee, new decking dundee, dundee decking joiner";
                     break;
 
                 case "Maintenance":
-                    ViewBag.Title = "RPM Joinery & Maintenance | Small Maintenance";
+                    ViewBag.Title = "Maintenance | RPM Joinery & Maintenance";
                     ViewBag.MetaDescription = "Small maintenance jobs by RPM Joinery & Maintenance Dundee, Angus and Perth.";
                     ViewBag.MetaKeywords = "RPM joinery maintenance, rpm maintenance, dundee maintenance, small maintenance joiner, dundee joiner property management";
                     break;
@@ -105,6 +108,9 @@ namespace RPMJoinery.Controllers
         {
             TempData["searchTag"] = "Kitchen";
             TempData["searchTitle"] = "Kitchens";
+            ViewBag.Title = "Kitchens | RPM Joinery & Maintenance";
+            ViewBag.MetaDescription = "Complete kitchen installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+            ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, kitchen installation dundee, new kitchen dundee, dundee kitchen fitter";
             return RedirectToAction("Index");
         }
 
@@ -112,6 +118,9 @@ namespace RPMJoinery.Controllers
         {
             TempData["searchTag"] = "Bathroom";
             TempData["searchTitle"] = "Bathrooms";
+            ViewBag.Title = "Bathrooms & Wet Walls | RPM Joinery & Maintenance";
+            ViewBag.MetaDescription = "Complete bathroom installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+            ViewBag.MetaKeywords = "RPM joinery maintenance, rpm bathrooms, bathroom installation dundee, new bathroom dundee, dundee bathroom wetwall";
             return RedirectToAction("Index");
         }
 
@@ -119,6 +128,9 @@ namespace RPMJoinery.Controllers
         {
             TempData["searchTag"] = "Windows/Doors";
             TempData["searchTitle"] = "Windows & Doors";
+            ViewBag.Title = "Windows & Doors | RPM Joinery & Maintenance";
+            ViewBag.MetaDescription = "Complete door and window installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+            ViewBag.MetaKeywords = "RPM joinery maintenance, rpm windows, doors installation dundee, new doors dundee, dundee window fitter";
             return RedirectToAction("Index");
         }
 
@@ -126,6 +138,9 @@ namespace RPMJoinery.Controllers
         {
             TempData["searchTag"] = "Decking/Fencing";
             TempData["searchTitle"] = "Decking & Fencing";
+            ViewBag.Title = "Decking & Fencing | RPM Joinery & Maintenance";
+            ViewBag.MetaDescription = "Complete decking and fencing installations by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+            ViewBag.MetaKeywords = "RPM joinery maintenance, rpm fence, fence installation dundee, new decking dundee, dundee decking joiner";
             return RedirectToAction("Index");
         }
 
@@ -133,12 +148,18 @@ namespace RPMJoinery.Controllers
         {
             TempData["searchTag"] = "Maintenance";
             TempData["searchTitle"] = "Maintenance";
+            ViewBag.Title = "Maintenance | RPM Joinery & Maintenance";
+            ViewBag.MetaDescription = "Small maintenance jobs by RPM Joinery & Maintenance Dundee, Angus and Perth.";
+            ViewBag.MetaKeywords = "RPM joinery maintenance, rpm maintenance, dundee maintenance, small maintenance joiner, dundee joiner property management";
             return RedirectToAction("Index");
         }
 
         public ActionResult All()
         {
             TempData["searchTag"] = "All";
+            ViewBag.Title = "Projects | RPM Joinery & Maintenance";
+            ViewBag.MetaDescription = "RPM Joinery & Mainentance have completed a wide variety of different projects, below you can browse a range of previous projects we have completed for our loyl customers.";
+            ViewBag.MetaKeywords = "RPM joinery maintenance, rpm kitchens, rpm bathrooms, windows, doors, floors, fencing, decking, rpm small maintenance jobs, property management. rpm projects, rpm example work, rpm portfolio";
             return RedirectToAction("Index");
         }
 

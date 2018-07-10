@@ -70,6 +70,7 @@ namespace RPMJoinery.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.Title = "Login | RPM Joinery & Maintenance";
                 return View(model);
             }
 
@@ -149,6 +150,7 @@ namespace RPMJoinery.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            ViewBag.Title = "Register | RPM Joinery & Maintenance";
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
