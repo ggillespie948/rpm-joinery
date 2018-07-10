@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="../../img/rpmfavicon.ico" type="image/x-icon" />
     <title> @ViewBag.Title </title>
     <meta name="description" content="@ViewBag.MetaDescription">
     <meta name="keywords" content="@ViewBag.MetaKeywords" />
@@ -75,23 +76,56 @@
     <hr />
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/imageModal")
-    @RenderSection("scripts", required: false)
 
     <div class="credit-container" id="credit-container">
         <a href="@Url.Action("About","Home")"> <img src="../../img/DttLogo.png" height="64" alt="Dundee Trusted Trader Scheme Logo" align="middle"> </a>
         <a href="@Url.Action("About","Home")"> <img src="../../img/ArtsLogo.png" height="64" alt="Angus Reputable Trader Logo" align="middle"> </a>
         <a href="https://www.facebook.com/rpmjoinerydundee/"> <img src="../../img/facebook.png" height="64" alt="Like us on Facebook Logo" align="middle"> </a>
     </div>
+
+    <div class="pre-footer">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-md-4">
+                    <h5><b>Contact</b></h5>
+                    <p>57 Denoon Terrace<br />Dundee<br />DD2 2EB</p>
+                    <span class="fa fa-phone"></span> <abbr title="Phone">P</abbr>: 07970 058622
+                    <br />
+                    <span class="fa fa-envelope"></span>
+                    <abbr title="Email">E</abbr>:
+                    <a href="mailto:rpmjoinery@gmail.com">
+                        rpmjoinery@gmail.com
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <h5><b>Useful Links</b></h5>
+                    <h6><a href="@Url.Action("About","Home")">About</a> <a href="@Url.Action("Contact","Home")">Contact</a></h6>
+                    <h6><a href="@Url.Action("Services","Home")">Services</a> <a href="@Url.Action("Index","Projects")">Projects</a></h6>
+                    <h6><a href="@Url.Action("Kitchens","Projects")">Kitchens</a> <a href="@Url.Action("Bathroom","Projects")">Bathrooms</a></h6>
+                    <h6><a href="@Url.Action("DeckingFencing","Projects")">Decking</a> <a href="@Url.Action("WindowsDoors","Projects")">Windows</a></h6>
+                    <a href="@Url.Action("Maintenance","Projects")">Maintenance</a>
+                </div>
+                <div class="col-md-4">
+                    <br />
+                    <h6><a href="@Url.Action("Maintenance","Projects")">XML Site Map</a></h6>
+                    <h6><a href="@Url.Action("Maintenance","Projects")">Cookie Policy</a></h6>
+                    <h6><a href="@Url.Action("Login","Account")">RPM Login</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
     <!-- Footer -->
 <footer class="py-5 bg-dark">
-    <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; RPM Joinery & Maintainance 2018</p>
-        <p class="m-0 text-center text-white">Website Created by Gary Gillespie</p>
-    </div>
+        <p class="m-0 text-center text-white">Website Design by Gary Gillespie</p>
     <!-- /.container -->
 </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/imageModal")
+    @RenderSection("scripts", required: false)
 </html>

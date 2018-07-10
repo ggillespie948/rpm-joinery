@@ -99,3 +99,17 @@
 .navcurve {
     border-radius: 0 0 20% 20% / 15%;
 }
+
+.pre-footer {
+    background-color: #0a0909;
+    color: white;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+

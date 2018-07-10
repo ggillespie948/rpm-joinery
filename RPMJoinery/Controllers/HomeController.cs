@@ -76,7 +76,7 @@ namespace RPMJoinery.Controllers
 
             if(domain == null || domain == "" || apikey == null || apikey == "")
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Contact");
             }
 
 

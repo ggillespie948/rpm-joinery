@@ -240,10 +240,13 @@
     <Content Include="img\carousel_kitchen.jpeg" />
     <Content Include="img\DttLogo2.png" />
     <Content Include="img\facebook.png" />
+    <Content Include="img\favicon.ico" />
     <Content Include="img\fence.jpeg" />
     <Content Include="img\project1.jpg" />
     <Content Include="img\project2.jpg" />
     <Content Include="img\project3.jpg" />
+    <Content Include="img\rpmBig.png" />
+    <Content Include="img\rpmfavicon.ico" />
     <Content Include="img\rpmlogo.png" />
     <Content Include="img\rpmvan.jpg" />
     <Content Include="img\services.jpeg" />
