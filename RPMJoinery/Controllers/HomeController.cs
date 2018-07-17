@@ -97,7 +97,7 @@ namespace RPMJoinery.Controllers
             request.AddParameter("domain", domain, ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
             request.AddParameter("from", name + "-" + phone + " <mailgun@"+domain+">");
-            request.AddParameter("to", "rpmjoinery@gmail.com");
+            request.AddParameter("to", "rpmdundee@gmail.com");
             request.AddParameter("subject", "RPM Joinery Contact Form Entry");
             request.AddParameter("text", message);
             request.Method = Method.POST;
