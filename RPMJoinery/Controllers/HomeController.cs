@@ -21,8 +21,8 @@ namespace RPMJoinery.Controllers
         public ActionResult Index()
         {
             //Set SEO keywords, description, and other meta data in view bag so can be changed dynamically in layout
-            ViewBag.Title = "RPM Joinery & Maintenance | Dundee Joinery Services";
-            ViewBag.MetaDescription = "RPM Joinery & Maintenance provide top quality joinery and maintenance services to Dundee, Angus and Fife, all at a great price.";
+            ViewBag.Title = "RPM Joinery and      Maintenance | Dundee Joinery Services";
+            ViewBag.MetaDescription = "RPM Joinery and Maintenance provide top quality joinery and maintenance services to Dundee, Angus and Fife, all at a great price.";
             ViewBag.MetaKeywords = "RPM joinery maintenance, dundee joiner, dundee joinery, lochee joiner, broughty ferry joiner, rpm dundee, kitchen fitting dundee, decking dundee, reliable joiner dundee, flat renovation dundee, bathroom fitting dundee, windows, doors, property management";
             
 
@@ -47,32 +47,32 @@ namespace RPMJoinery.Controllers
         public ActionResult About()
         {
             //Set SEO keywords, description, and other meta data in view bag so can be changed dynamically in layout
-            ViewBag.Title = "About | RPM Joinery & Maintenance";
-            ViewBag.MetaDescription = "RPM Joinery & Maintenance is a family run business that take great pride in providing the best possible service to meet all of our consumer's needs. We are proudly a part of the Dundee Trusted Trader Scheme, as well as the Angus Reputable Trader Scheme.";
+            ViewBag.Title = "About | RPM Joinery and Maintenance";
+            ViewBag.MetaDescription = "RPM Joinery and Maintenance is a family run business that take great pride in providing the best possible service to meet all of our consumer's needs.";
             ViewBag.MetaKeywords = "RPM joinery maintenance, reliable joiner, trusted joiner dundee, quality cheap joiner dundee angus, about rpm dundee, trusted trader dundee joiner, trusted joiner angus, family run joiner dundee";
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Title = "Contact Us | RPM Joinery & Maintenance";
-            ViewBag.MetaDescription = "Contact RPM Joinery & Maintenance directly. We are happy to discuss the details of any potential work you may need conducted.";
+            ViewBag.Title = "Contact Us | RPM Joinery and Maintenance";
+            ViewBag.MetaDescription = "Contact RPM Joinery and Maintenance directly. We are happy to discuss the details of any potential work you may need conducted.";
             ViewBag.MetaKeywords = "RPM Joinery, RPM joienry contact, contact a joiner in dundee, emergency joiner dundee, contact joiner angus";
             return View();
         }
 
         public ActionResult Services()
         {
-            ViewBag.Title = "Services | RPM Joinery & Maintenance";
-            ViewBag.MetaDescription = "RPM Joinery & Maintenance offer a wide range of services ranging from domestic to commerical. We offer our services in fitting kitchens, bathrooms, decking, fencing, total refurbishment and much more in Dundee and the surrounding areas.";
+            ViewBag.Title = "Services | RPM Joinery and Maintenance";
+            ViewBag.MetaDescription = "RPM Joinery and Maintenance offer a wide range of services ranging from domestic to commercial.We offer services in fitting kitchens, bathrooms and more.";
             ViewBag.MetaKeywords = "RPM services, kitchen dundee, bathrooms dundee, maintenance dundee, decking, joinery services, joinery carpenter dundee angus perth";
             return View();
         }
 
         public ActionResult Cookie()
         {
-            ViewBag.Title = "Cookie Policy | RPM Joinery & Maintenance";
-            ViewBag.MetaDescription = "RPM Joinery & Maintenance Cookie policy";
+            ViewBag.Title = "Cookie Policy | RPM Joinery and Maintenance";
+            ViewBag.MetaDescription = "RPM Joinery and Maintenance Cookie policy";
             ViewBag.MetaKeywords = "Cookie policy rpm";
             return View();
         }
