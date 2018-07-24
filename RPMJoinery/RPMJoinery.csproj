@@ -232,6 +232,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="google31e46b5ed1aa94b8.html" />
     <Content Include="img\ArtsLogo.png" />
     <Content Include="img\ArtsLogo2.PNG" />
     <Content Include="img\DttLogo.png" />
