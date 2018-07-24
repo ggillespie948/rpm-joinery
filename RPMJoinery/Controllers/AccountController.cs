@@ -57,6 +57,7 @@ namespace RPMJoinery.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            ViewBag.Title = "Login | RPM Joinery and Maintenance";
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -70,7 +71,7 @@ namespace RPMJoinery.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Title = "Login | RPM Joinery & Maintenance";
+                ViewBag.Title = "Login | RPM Joinery and Maintenance";
                 return View(model);
             }
 
@@ -150,7 +151,7 @@ namespace RPMJoinery.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            ViewBag.Title = "Register | RPM Joinery & Maintenance";
+            ViewBag.Title = "Register | RPM Joinery and Maintenance";
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
