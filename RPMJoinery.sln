@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPMJoinery", "RPMJoinery\RPMJoinery.csproj", "{BD2FA558-31B2-481E-A6AB-014A15BFE2FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPMJoineryUnitTests", "RPMJoineryUnitTests\RPMJoineryUnitTests.csproj", "{CD8B1313-EC5C-4EA2-92B3-58EE71E3BB16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{BD2FA558-31B2-481E-A6AB-014A15BFE2FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD2FA558-31B2-481E-A6AB-014A15BFE2FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD2FA558-31B2-481E-A6AB-014A15BFE2FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD8B1313-EC5C-4EA2-92B3-58EE71E3BB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8B1313-EC5C-4EA2-92B3-58EE71E3BB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8B1313-EC5C-4EA2-92B3-58EE71E3BB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8B1313-EC5C-4EA2-92B3-58EE71E3BB16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22D1AF5B-26ED-48EB-80A6-1003A46CE5FA}
 	EndGlobalSection
 EndGlobal
