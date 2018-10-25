@@ -44,6 +44,7 @@ namespace RPMJoinery.Controllers
             return View(recentProjects);
         }
 
+        [Route("About")]
         public ActionResult About()
         {
             //Set SEO keywords, description, and other meta data in view bag so can be changed dynamically in layout
@@ -53,6 +54,7 @@ namespace RPMJoinery.Controllers
             return View();
         }
 
+        [Route("Contact")]
         public ActionResult Contact()
         {
             ViewBag.Title = "Contact Us | RPM Joinery and Maintenance";
@@ -61,6 +63,7 @@ namespace RPMJoinery.Controllers
             return View();
         }
 
+        [Route("Services")]
         public ActionResult Services()
         {
             ViewBag.Title = "Services | RPM Joinery and Maintenance";
@@ -69,6 +72,7 @@ namespace RPMJoinery.Controllers
             return View();
         }
 
+        [Route("Cooke")]
         public ActionResult Cookie()
         {
             ViewBag.Title = "Cookie Policy | RPM Joinery and Maintenance";
