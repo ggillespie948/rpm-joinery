@@ -99,7 +99,7 @@ namespace RPMJoinery.Controllers
                 return View(db.Projects.AsEnumerable().Where(x => ContainsSearchTag(TempData["searchTag"].ToString(), x.Type) == true).ToList());
             } else
             {
-                return View(db.Projects.ToList());
+                return View(GetProjects());
             }
 
         }
@@ -170,7 +170,7 @@ namespace RPMJoinery.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
+            Project project = FindProject(id);
             if (project == null)
             {
                 return HttpNotFound();
@@ -220,7 +220,7 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     Stream st = image.InputStream;
-                    string filename = db.Projects.ToList().Count() + "-1";
+                    string filename = GetProjects().Count() + "-1";
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "project";
                     string s3FileName = "" + filename;
@@ -240,7 +240,7 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     Stream st = image2.InputStream;
-                    string filename = db.Projects.ToList().Count() + "-2";
+                    string filename = GetProjects().Count() + "-2";
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "project";
                     string s3FileName = "" + filename;
@@ -260,7 +260,7 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     Stream st = image3.InputStream;
-                    string filename = db.Projects.ToList().Count() + "-3";
+                    string filename = GetProjects().Count() + "-3";
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "project";
                     string s3FileName = "" + filename;
@@ -280,7 +280,7 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     Stream st = image4.InputStream;
-                    string filename = db.Projects.ToList().Count() + "-4";
+                    string filename = GetProjects().Count() + "-4";
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "project";
                     string s3FileName = "" + filename;
@@ -300,7 +300,7 @@ namespace RPMJoinery.Controllers
                 {
                     //Save image to file
                     Stream st = image5.InputStream;
-                    string filename = db.Projects.ToList().Count() + "-5";
+                    string filename = GetProjects().ToList().Count() + "-5";
                     string bucketName = "rpmjoinery";
                     string s3DirectoryName = "project";
                     string s3FileName = "" + filename;
@@ -329,8 +329,8 @@ namespace RPMJoinery.Controllers
                 }
                 project.Type = tagString;
 
-                db.Projects.Add(project);
-                db.SaveChanges();
+                AddProject(project);
+                SaveDbChanges();
 
                 return RedirectToAction("Index");
             }
@@ -346,7 +346,6 @@ namespace RPMJoinery.Controllers
                 if (s == tag)
                     return true;
             }
-
             return false;
         }
 
@@ -358,7 +357,7 @@ namespace RPMJoinery.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
+            Project project = FindProject(id);
             if (project == null)
             {
                 return HttpNotFound();
@@ -380,8 +379,8 @@ namespace RPMJoinery.Controllers
 
             if (ModelState.IsValid)
             {
-                db.Entry(project).State = EntityState.Modified;
-                db.SaveChanges();
+                EntryState(project);
+                SaveDbChanges();
                 return RedirectToAction("Index");
             }
 
@@ -401,8 +400,9 @@ namespace RPMJoinery.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Project project = db.Projects.Find(id);
+            }  
+            
+            Project project = FindProject(id);
             if (project == null)
             {
                 return HttpNotFound();
@@ -416,9 +416,14 @@ namespace RPMJoinery.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Project project = db.Projects.Find(id);
-            db.Projects.Remove(project);
-            db.SaveChanges();
+            Project project = FindProject(id);
+            RemoveProject(project);
+            SaveDbChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult test()
+        {
             return RedirectToAction("Index");
         }
 
@@ -435,6 +440,42 @@ namespace RPMJoinery.Controllers
         {
             return new Guid(User.Identity.GetUserId());
         }
-                
+
+        //  Db context //
+        // the following methods interact with the db context and can
+        // be overridden by the testing project easily
+
+        public virtual List<Project> GetProjects()
+        {
+            return db.Projects.ToList();
+        }
+
+        public virtual Project FindProject(int? id)
+        {
+            return db.Projects.Find(id);
+        }
+
+        public virtual bool SaveDbChanges()
+        {
+            db.SaveChanges();
+            return true;
+        }
+
+        public virtual void RemoveProject(Project project)
+        {
+            db.Projects.Remove(project);
+        }
+
+        public virtual bool AddProject(Project project)
+        {
+            db.Projects.Add(project);
+            return true;
+        }
+
+        public virtual void EntryState(Project project)
+        {
+            db.Entry(project).State = EntityState.Modified;
+        }
+
     }
 }

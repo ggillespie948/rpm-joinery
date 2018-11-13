@@ -26,6 +26,6 @@ namespace RPMJoinery.Models
             base.OnModelCreating(modelBuilder);
         }
 
-        public System.Data.Entity.DbSet<RPMJoinery.Models.Project> Projects { get; set; }
+        public DbSet<Project> Projects { get; set; }
     }
 }
