@@ -62,8 +62,8 @@ namespace RPMJoineryUnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void CreateProject_NullTagParameters_Null()
+        //[ExpectedException(typeof(ArgumentNullException))]
+        public void CreateProject_NullTags_NotNull()
         {
             //Arrange
             var project = new Project { Id = '1', UserID = Guid.NewGuid(), Title = null, Description = "PRoject Description", Type = "", Details = "Details string" };
@@ -77,6 +77,45 @@ namespace RPMJoineryUnitTests
             //Assert
             Assert.IsNull(result);
         }
-        
+
+        [TestMethod]
+        public void GET_EditProject_NotNull()
+        {
+            // Arrange
+            List<Project> projects = new List<Project>();
+            var project1 = new Project { Id = '1', UserID = Guid.NewGuid(), Title = "Project Title 1", Description = "PRoject Description", Type = "", Details = "Details string" };
+            var mock = new Mock<ProjectsController>();
+            mock.Setup(m => m.IsUserAuthenticated).Returns(true);
+            mock.Setup(m => m.FindProject(1)).Returns(project1);
+            mock.CallBase = true;
+
+            // Act
+            var result = mock.Object.Edit(1) as ViewResult;
+
+            //Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void POST_EditProject_NotNull()
+        {
+            // Arrange
+            string[] typeArr = { "bathroom", "kitchen" };
+            List<Project> projects = new List<Project>();
+            var project1 = new Project { Id = '1', UserID = Guid.NewGuid(), Title = "Project Title 1", Description = "PRoject Description", Type = "", Details = "Details string", ImgFilePath="/fake/path" };
+            var mock = new Mock<ProjectsController>();
+            mock.Setup(m => m.IsUserAuthenticated).Returns(true);
+            mock.Setup(m => m.SaveDbChanges()).Returns(true);
+            mock.CallBase = true;
+
+            // Act
+            var result = mock.Object.Edit(project1, typeArr) as RedirectToRouteResult; 
+
+            //Assert
+            Assert.IsNotNull(result);
+        }
+
+
+
     }
 }

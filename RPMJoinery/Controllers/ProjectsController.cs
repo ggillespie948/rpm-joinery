@@ -215,7 +215,7 @@ namespace RPMJoinery.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                
                 if (image != null)
                 {
                     //Save image to file
@@ -317,15 +317,18 @@ namespace RPMJoinery.Controllers
                 }
 
                 string tagString = "";
-                if(type.Count() > 0)
+                if(type!=null)
                 {
-                    foreach(string tag in type)
+                    if(type.Count() > 0)
                     {
-                        tagString += " " + tag;
+                        foreach(string tag in type)
+                        {
+                            tagString += " " + tag;
+                        }
+                    } else
+                    {
+                        project.Type = "All ";
                     }
-                } else
-                {
-                    project.Type = "All ";
                 }
                 project.Type = tagString;
 
