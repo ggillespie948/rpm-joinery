@@ -6,6 +6,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RPMJoinery;
@@ -20,25 +21,25 @@ namespace RPMJoineryUnitTests
         [TestMethod]
         public void TestMethodIndex()
         {
-            //Arrange
-            //var fakeHttpContext = new Mock<HttpContextBase>();
-            //var fakeIdentity = new GenericIdentity("User");
-            //var principal = new GenericPrincipal(fakeIdentity, null);
+            // Arrange
+            List<Project> projects = new List<Project>();
+            var project1 = new Project { Id = '1', UserID = Guid.NewGuid(), Title = "Project Title 1", Description = "PRoject Description", Type = "", Details = "Details string" };
+            var project2 = new Project { Id = '2', UserID = Guid.NewGuid(), Title = "Project Title 2", Description = "PRoject Description", Type = "", Details = "Details string" };
+            var project3 = new Project { Id = '3', UserID = Guid.NewGuid(), Title = "Project Title 3", Description = "PRoject Description", Type = "", Details = "Details string" };
+            projects.Add(project1);
+            projects.Add(project2);
+            projects.Add(project3);
 
-            //fakeHttpContext.Setup(t => t.User).Returns(principal);
-            //var controllerContext = new Mock<ControllerContext>();
-            //controllerContext.Setup(t => t.HttpContext).Returns(fakeHttpContext.Object);
+            var mock = new Mock<ProjectsController>();
+            mock.Setup(m => m.IsUserAuthenticated).Returns(true);
+            mock.Setup(m => m.GetProjects()).Returns(projects);
+            mock.CallBase = true;
 
-            //ProjectsController controller = new ProjectsController();
-
-            //Set ControllerContext with fake context
-            //controller.ControllerContext = controllerContext.Object;
-
-            //Act
-            //ViewResult result = controller.Index() as ViewResult;
+            // Act
+            var result = mock.Object.Index() as ViewResult;
 
             //Assert
-            //Assert.IsNotNull(result);
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
@@ -54,7 +55,7 @@ namespace RPMJoineryUnitTests
             mock.Setup(m => m.SaveDbChanges()).Returns(true);
 
             //Act
-            var result = mock.Object.Create(null, typeArr, null, null, null, null, null) as RedirectToRouteResult;
+            var result = mock.Object.Create(project, typeArr, null, null, null, null, null) as RedirectToRouteResult;
 
             //Assert
             Assert.IsNotNull(result);
@@ -62,7 +63,7 @@ namespace RPMJoineryUnitTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void CreateProject_NullProjectParameters_Null()
+        public void CreateProject_NullTagParameters_Null()
         {
             //Arrange
             var project = new Project { Id = '1', UserID = Guid.NewGuid(), Title = null, Description = "PRoject Description", Type = "", Details = "Details string" };

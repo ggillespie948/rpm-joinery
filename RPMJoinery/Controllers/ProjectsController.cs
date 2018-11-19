@@ -85,7 +85,7 @@ namespace RPMJoinery.Controllers
 
             }
 
-            if (User.Identity.IsAuthenticated)
+            if ( IsUserAuthenticated )
             {
                 ViewBag.IsAuthenticated = true;
             } else
@@ -444,6 +444,15 @@ namespace RPMJoinery.Controllers
         //  Db context //
         // the following methods interact with the db context and can
         // be overridden by the testing project easily
+
+        public virtual bool IsUserAuthenticated
+        {
+            get
+            {
+                return
+                System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            }
+        }
 
         public virtual List<Project> GetProjects()
         {
