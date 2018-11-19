@@ -43,7 +43,7 @@ namespace RPMJoineryUnitTests
         }
 
         [TestMethod]
-        public void CreateProject_NoImages_NotNull()
+        public void POST_CreateProject_NoImages_NotNull()
         {
             //Arrange
             string[] typeArr = { "bathroom", "kitchen" };
@@ -56,6 +56,21 @@ namespace RPMJoineryUnitTests
 
             //Act
             var result = mock.Object.Create(project, typeArr, null, null, null, null, null) as RedirectToRouteResult;
+
+            //Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GET_CreateProject_NoImages_NotNull()
+        {
+            //Arrange
+            var mock = new Mock<ProjectsController>();
+            mock.CallBase = true;
+            mock.Setup(m => m.GetCurrentUserID()).Returns(Guid.NewGuid());
+
+            //Act
+            var result = mock.Object.Create() as ViewResult;
 
             //Assert
             Assert.IsNotNull(result);

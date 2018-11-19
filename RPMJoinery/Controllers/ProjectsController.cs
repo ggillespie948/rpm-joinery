@@ -439,7 +439,7 @@ namespace RPMJoinery.Controllers
             base.Dispose(disposing);
         }
 
-        public Guid GetCurrentUserID()
+        public virtual Guid GetCurrentUserID()
         {
             return new Guid(User.Identity.GetUserId());
         }
