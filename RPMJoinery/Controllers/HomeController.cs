@@ -101,7 +101,7 @@ namespace RPMJoinery.Controllers
             RestRequest request = new RestRequest();
             request.AddParameter("domain", domain, ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
-            request.AddParameter("from", email + "-" + name + "-" + phone + " <mailgun@"+domain+">");
+            request.AddParameter("from","email: " + email + "-" + name + "-" + phone + " <mailgun@"+domain+">");
             request.AddParameter("to", "rpmdundee@gmail.com");
             request.AddParameter("subject", "RPM Joinery Contact Form Entry");
             request.AddParameter("text", message);
