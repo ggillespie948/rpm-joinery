@@ -305,6 +305,7 @@
     <Content Include="google31e46b5ed1aa94b8.html" />
     <Content Include="img\ArtsLogo.png" />
     <Content Include="img\ArtsLogo2.PNG" />
+    <Content Include="img\commercial.jpg" />
     <Content Include="img\DttLogo.png" />
     <Content Include="img\carousel_bathroom.jpeg" />
     <Content Include="img\carousel_doorswindows.jpeg" />
@@ -321,6 +322,8 @@
     <Content Include="img\rpmlogo.png" />
     <Content Include="img\rpmvan.jpg" />
     <Content Include="img\services.jpeg" />
+    <Content Include="img\services.jpg" />
+    <Content Include="img\services1.jpg" />
     <Content Include="img\toolkit.jpg" />
     <Content Include="img\toolkit2.jpg" />
     <Content Include="img\toolkit3.jpg" />
